@@ -20,7 +20,7 @@ Vue.use(VueRouter)
 
 import routes from './Routes'
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes
 })
 

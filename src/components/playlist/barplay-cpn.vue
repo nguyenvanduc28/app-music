@@ -33,7 +33,7 @@
       </div>
       <div class="rangeaudio">
         <input id="range" type="range" value="0" step="1" min="0" max="200" >
-        <audio id="audio" :src="track.linktrack"></audio>
+        <audio id="audio" :src="currentTrack.linktrack"></audio>
       </div>
       <div id="timetrack">
         00:00
@@ -43,13 +43,17 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 export default {
-  props: ['track', 'vol'],
 
   mounted() {
-    this.running();
+    this.getCurrentTrack();
+    this.running()
   },
 
+  computed: {
+    ...mapState(['currentTrack', 'currentId'])
+  },
 
   data() {
     return {
@@ -61,21 +65,32 @@ export default {
 
 
   methods: {
-
+    ...mapActions(['getCurrentTrack', 'nextId', 'prevId']),
+    
     nexttrack() {
-      this.$emit('next-track');
+      this.nextId();
+      this.run = true;
       setTimeout(() => {
         this.toggle();
         this.toggle();
       }, 1000);
+
+      console.log(this.currentId);
+      console.log(this.currentTrack);
+      this.getCurrentTrack();
     },
 
     backtrack() {
-      this.$emit('back-track');
+      this.prevId();
+      this.run = true;
+
       setTimeout(() => {
         this.toggle();
         this.toggle();
       }, 1000);
+      console.log(this.currentId);
+      console.log(this.currentTrack);
+      this.getCurrentTrack();
     },
 
     toggle() {
@@ -96,7 +111,7 @@ export default {
       }
     },
 
-    formatTime: function(sec_num) {
+    formatTime(sec_num) {
 
       let hours = Math.floor(sec_num / 3600);
       let minutes = Math.floor((sec_num - hours * 3600) / 60);
@@ -148,22 +163,6 @@ export default {
 //
       }
     },
-
-    volChange() {
-      const audio = document.getElementById("audio");
-      audio.volume = this.vol;
-      console.log(this.vol);
-      console.log(audio.volume);
-
-    }
-    // audiochange() {
-    //   const audio = document.getElementById("audio");
-    //   const range = document.getElementById("range");
-
-    //   range.onchange = function () {
-    //     audio.currentTime = this.value;
-    //   }
-    // }
   }
 }
 </script>

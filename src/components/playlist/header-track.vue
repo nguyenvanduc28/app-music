@@ -1,11 +1,11 @@
 <template>
   <div class="header-root">
     <div class="imageTrack">
-      <img :src="track.imagetrack" alt="">
+      <img :src="currentTrack.imagetrack" alt="">
     </div>
     <div class="nameTrack-author">
-      <div class="p1">{{track.name}}</div>
-      <div class="p2">{{track.author}}</div>
+      <div class="p1">{{currentTrack.name}}</div>
+      <div class="p2">{{currentTrack.author}}</div>
     </div>
     <div class="button-heart">
       <button>
@@ -14,11 +14,16 @@
     </div>
   </div>
 </template>
-
 <script>
+
+import { mapState } from 'vuex'
+
 export default {
-    props: ['track']
-    
+    props: ['track'],
+
+    computed: {
+    ...mapState(['currentTrack'])
+  },
 }
 </script>
 

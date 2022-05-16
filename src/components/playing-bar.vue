@@ -3,23 +3,15 @@
 
   <div 
     class="playing"
-    v-bind="showTrack(chiso)"
     >
     
       <Header class="header"
-      :track="track"
       
       />
       <Barplay class="playlist"
-      @next-track="next"
-      @back-track="back"
-      :track="track"
-      :vol="vol"
       />
 
       <Volume class="volume"
-      :track="track"
-      @change-Vol="volvalue"
       />
   </div>
 </div>
@@ -27,7 +19,7 @@
 
 <script>
 
-import { mapState, mapActions} from 'vuex'
+import {mapActions} from 'vuex'
 
 import Header from './playlist/header-track.vue'
 import Volume from './playlist/volume-audio.vue'
@@ -43,57 +35,15 @@ export default {
   },
 
   data() {
-      return {
-        chiso: 1,
-        track: {
-          id:'',
-          name:'',
-          author:'',
-          linktrack:'',
-          imagetrack:''
-        },
 
-        vol:0,
-      }
   },
 
   computed: {
-    ...mapState(['tracks'])
   },
 
   methods: {
     ...mapActions(['getTracks']),
 
-    showTrack: function (chiso) {
-      for (var index in this.tracks ) {
-        if (this.tracks[index].id == chiso) {
-          this.track.id = this.tracks[index].id
-          this.track.name = this.tracks[index].name
-          this.track.author = this.tracks[index].author
-          this.track.linktrack = this.tracks[index].linktrack
-          this.track.imagetrack = this.tracks[index].imagetrack
-          
-        }
-      }
-    },
-
-    next() {
-      let x = this.chiso+1;
-      if (x > this.tracks.length) {
-        this.chiso = 1;
-      } else this.chiso = this.chiso+1;
-    },
-
-    back() {
-      let x = this.chiso-1;
-      if (x == 0 ) {
-        this.chiso = this.tracks.length;
-      } else this.chiso = this.chiso-1;
-    },
-
-    volvalue(vol) {
-      this.vol = vol;
-    }
   },
 }
 </script>

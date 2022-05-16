@@ -1,0 +1,81 @@
+{
+  "tracks": [
+      {
+          "id": 1,
+          "name": "Thằng Điên",
+          "author": "JustaTee, Phương Ly",
+          "linktrack": "./music/thangdien.mp3",
+          "imagetrack": "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/d/5/c/9d5c56a277a06a48ec7956a4fd17e4c1.jpg"
+      },
+      {
+          "id": 2,
+          "name": "Someday",
+          "author": "IU",
+          "linktrack": "./music/someday.mp3",
+          "imagetrack": "https://photo-resize-zmp3.zmdcdn.me/w480_r1x1_webp/covers/7/3/73e87d2df1fdf25a3d4b51a3c39020a0_1294474581.jpg"
+      },
+      {
+          "id": 3,
+          "name": "Cho tôi lang thang",
+          "author": "Đen",
+          "linktrack": "./music/chotoilangthang.mp3",
+          "imagetrack": "https://i1.sndcdn.com/artworks-000211366895-uuwkx0-t500x500.jpg"
+      },
+      {
+          "id": 4,
+          "name": "Thiên Đàng",
+          "author": "Wowy, JoliPoli",
+          "linktrack": "./music/thiendang.mp3",
+          "imagetrack": "https://i.scdn.co/image/ab67616d0000b2738ae85de1791a8d703cb57c40"
+      },
+      {
+          "id": 5,
+          "name":"Đường Một Chiều",
+          "author":"Huỳnh Tú",
+          "linktrack": "./music/duongmotchieu.mp3",
+          "imagetrack":"https://i.ytimg.com/vi/W6hxiDmMGSE/maxresdefault.jpg"
+      },
+      {
+          "id": 6,
+          "name": "Nơi Này Có Anh",
+          "author":"Sơn Tùng MTP",
+          "linktrack": "./music/noinaycoanh.mp3",
+          "imagetrack":"https://i.ytimg.com/vi/FN7ALfpGxiI/maxresdefault.jpg"
+      },
+      {
+          "id": 7,
+          "name":"Hành Lang Cũ",
+          "author":"Long nón lá",
+          "linktrack": "./music/hanhlangcu.mp3",
+          "imagetrack":"https://i.ytimg.com/vi/UoYTgdhNjHE/maxresdefault.jpg"
+      },
+      {
+          "id": 8,
+          "name":"Tháng Tư Là Lời Nói Dối Của Em",
+          "author":"Hà Anh Tuấn",
+          "linktrack": "./music/thangtulaloinoidoicuaem.mp3",
+          "imagetrack":"https://avatar-ex-swe.nixcdn.com/playlist/2016/10/10/4/b/e/0/1476093493424_500.jpg"
+      },
+      {
+          "id": 9,
+          "name": "Đông Kiếm Em",
+          "author":"Vũ",
+          "linktrack": "./music/dongkiemem.mp3",
+          "imagetrack": "https://avatar-ex-swe.nixcdn.com/song/2020/08/11/6/d/1/5/1597138738469_640.jpg"
+      },
+      {
+          "id": 10,
+          "name": "Nàng Thơ",
+          "author":"Hoàng Dũng",
+          "linktrack": "./music/nangtho.mp3",
+          "imagetrack":"https://data.chiasenhac.com/data/cover/126/125060.jpg"
+      },
+      {
+          "id": 11,
+          "name": "Hỏi Gió-问风",
+          "author":"Kim Ngư-金渔",
+          "linktrack": "./music/hoigio.mp3",
+          "imagetrack":"https://i.ytimg.com/vi/aFDUSvwxEYw/maxresdefault.jpg"
+      }
+  ]
+}
