@@ -45,7 +45,7 @@ export default {
   },
 
   computed: {
-    ...mapState(["currentTrack", "currentId", "change" ,"volume"]),
+    ...mapState(["currentTrack", "currentId", "change", "volume"]),
   },
 
   data() {
@@ -58,7 +58,6 @@ export default {
   updated() {
     this.updateTrack();
   },
-  
 
   methods: {
     ...mapActions(["getCurrentTrack", "nextId", "prevId"]),
@@ -68,8 +67,10 @@ export default {
       this.run = true;
       setTimeout(() => {
         this.toggle();
+      }, 500);
+      setTimeout(() => {
         this.toggle();
-      }, 1000);
+      }, 500);
 
       this.getCurrentTrack();
     },
@@ -80,8 +81,10 @@ export default {
 
       setTimeout(() => {
         this.toggle();
+      }, 500);
+      setTimeout(() => {
         this.toggle();
-      }, 1000);
+      }, 500);
       console.log(this.currentId);
       console.log(this.currentTrack);
       this.getCurrentTrack();
@@ -159,8 +162,10 @@ export default {
           this.run = true;
           setTimeout(() => {
             this.toggle();
+          }, 500);
+          setTimeout(() => {
             this.toggle();
-          }, 1000);
+          }, 500);
 
           this.getCurrentTrack();
         }
@@ -170,13 +175,14 @@ export default {
 
     updateTrack() {
       if (this.change == true) {
-      this.run = true;
-      setTimeout(() => {
-        this.toggle();
-        this.toggle();
-      }, 1000); 
-    }
-
+        this.run = true;
+        setTimeout(() => {
+          this.toggle();
+        }, 500);
+        setTimeout(() => {
+          this.toggle();
+        }, 500);
+      }
     },
   },
 };

@@ -1,34 +1,24 @@
 <template>
-<div class="root-playing-bar">
-
-  <div 
-    class="playing"
-    >
-    
-      <Header class="header"
-      
-      />
-      <Barplay class="playlist"
-      />
-
-      <Volume class="volume"
-      />
+  <div class="root-playing-bar">
+    <div class="playing">
+      <Header class="header" />
+      <Barplay class="playlist" />
+      <Volume class="volume" />
+    </div>
   </div>
-</div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 
-import {mapActions} from 'vuex'
-
-import Header from './playlist/header-track.vue'
-import Volume from './playlist/volume-audio.vue'
-import Barplay from './playlist/barplay-cpn.vue'
+import Header from "./playlist/header-track.vue";
+import Volume from "./playlist/volume-audio.vue";
+import Barplay from "./playlist/barplay-cpn.vue";
 export default {
   components: {
     Header,
     Volume,
-    Barplay
+    Barplay,
   },
   mounted() {
     this.getTracks();
@@ -37,17 +27,14 @@ export default {
     }, 1000);
   },
 
-  data() {
-    
-    },
+  data() {},
 
-  computed: {
-  },
+  computed: {},
 
   methods: {
-    ...mapActions(['getTracks', 'getCurrentTrack']),
+    ...mapActions(["getTracks", "getCurrentTrack"]),
   },
-}
+};
 </script>
 
 <style scoped>
@@ -55,7 +42,6 @@ export default {
   height: 100%;
   color: white;
   padding: 0 16px;
-  
 }
 .playing {
   display: flex;

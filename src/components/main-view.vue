@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <router-view></router-view>
   </div>
 </template>
@@ -7,12 +7,12 @@
 <script>
 export default {
   methods: {
-  
-  myFunction(){
-    this.$refs.iconn.innerHTML = `<button class="ducduc">test</button>`;
-    console.log(this.$refs.iconn);
-  }
-  }}
+    myFunction() {
+      this.$refs.iconn.innerHTML = `<button class="ducduc">test</button>`;
+      console.log(this.$refs.iconn);
+    },
+  },
+};
 </script>
 
 <style scoped>
