@@ -13,4 +13,4 @@ git push -f git@github.com:ducduc222/app-music.git master:review-page
 cd ..
 git add .
 git commit -m "change Code"
-git push origin master
+git push origin main

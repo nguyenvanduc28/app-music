@@ -67,8 +67,6 @@ export default {
       this.run = true;
       setTimeout(() => {
         this.toggle();
-      }, 1000);
-      setTimeout(() => {
         this.toggle();
       }, 1000);
 
@@ -81,8 +79,6 @@ export default {
 
       setTimeout(() => {
         this.toggle();
-      }, 1000);
-      setTimeout(() => {
         this.toggle();
       }, 1000);
       console.log(this.currentId);
@@ -162,8 +158,6 @@ export default {
           this.run = true;
           setTimeout(() => {
             this.toggle();
-          }, 1000);
-          setTimeout(() => {
             this.toggle();
           }, 1000);
 
@@ -178,8 +172,6 @@ export default {
         this.run = true;
         setTimeout(() => {
           this.toggle();
-        }, 1000);
-        setTimeout(() => {
           this.toggle();
         }, 1000);
       }
