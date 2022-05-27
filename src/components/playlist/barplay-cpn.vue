@@ -67,10 +67,10 @@ export default {
       this.run = true;
       setTimeout(() => {
         this.toggle();
-      }, 500);
+      }, 1000);
       setTimeout(() => {
         this.toggle();
-      }, 500);
+      }, 1000);
 
       this.getCurrentTrack();
     },
@@ -81,10 +81,10 @@ export default {
 
       setTimeout(() => {
         this.toggle();
-      }, 500);
+      }, 1000);
       setTimeout(() => {
         this.toggle();
-      }, 500);
+      }, 1000);
       console.log(this.currentId);
       console.log(this.currentTrack);
       this.getCurrentTrack();
@@ -162,10 +162,10 @@ export default {
           this.run = true;
           setTimeout(() => {
             this.toggle();
-          }, 500);
+          }, 1000);
           setTimeout(() => {
             this.toggle();
-          }, 500);
+          }, 1000);
 
           this.getCurrentTrack();
         }
@@ -178,10 +178,10 @@ export default {
         this.run = true;
         setTimeout(() => {
           this.toggle();
-        }, 500);
+        }, 1000);
         setTimeout(() => {
           this.toggle();
-        }, 500);
+        }, 1000);
       }
     },
   },
