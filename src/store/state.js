@@ -4,4 +4,5 @@ export default {
     currentTrack: {},
     volume: 1,
     currentId: 1,
+    change: false
 }

@@ -18,16 +18,25 @@ export default {
         state.currentId = id;
     },
 
+    selectId(state, id) {
+        state.currentId = id-1;
+    },
+
     setCurrentTrack(state) {
         state.currentTrack = state.tracks[state.currentId]
     },
 
     setVolume(state, volume) {
-        state.volume = volume
+        state.volume = volume;
+        // console.log(state.volume);
     },
 
     setSumTrack(state, sumTrack) {
         state.sumTrack = sumTrack
-    }
+    },
 
+    changeTrack(state, value) {
+        state.change = value;
+        console.log(state.change);
+    }
 }

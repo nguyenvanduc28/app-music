@@ -31,19 +31,21 @@ export default {
     Barplay
   },
   mounted() {
-    this.getTracks()
+    this.getTracks();
+    setTimeout(() => {
+      this.getCurrentTrack();
+    }, 1000);
   },
 
   data() {
-
-  },
+    
+    },
 
   computed: {
   },
 
   methods: {
-    ...mapActions(['getTracks']),
-
+    ...mapActions(['getTracks', 'getCurrentTrack']),
   },
 }
 </script>

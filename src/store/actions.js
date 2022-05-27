@@ -18,5 +18,7 @@ export default {
     prevId({commit}) {
         commit('setId', -1);
     },
-
+    selectTrack({commit}, id) {
+        commit('selectId', id);
+    },
 }

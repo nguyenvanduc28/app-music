@@ -18,23 +18,25 @@
 </template>
 
 <script>
+
+import { mapMutations, mapState } from "vuex";
 export default {
-    props: ['track'],
-    mounted() {
-      this.volchange()
-    },
     data() {
       return {
       }
     },
+    computed: {
+      ...mapState(["volume"])
+    },
     methods: {
-      volchange: function() {
+      ...mapMutations(['setVolume']),
+
+      volchange() {
         const vol = document.getElementById("rangevol");
-        this.$emit('change-Vol', vol.value);
-        console.log(vol.value);
+        this.setVolume(vol.value);
+        // console.log(vol.value);
+        // console.log(this.volume);
       }
-
-
     },
 }
 </script>

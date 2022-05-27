@@ -1,7 +1,6 @@
 <template>
   <div class="playbar-root">
     <div class="player-controls">
-
       <div class="player-controls-left">
         <button class="tron-button">
           <fa-icon icon="shuffle" />
@@ -10,10 +9,10 @@
           <fa-icon icon="backward-step" />
         </button>
       </div>
-      <div >
-      <button id="toggle-button" @click="toggle()">
-        <fa-icon icon="play" />
-      </button>
+      <div>
+        <button id="toggle-button" @click="toggle()">
+          <fa-icon icon="play" />
+        </button>
       </div>
 
       <div class="player-controls-right">
@@ -24,49 +23,46 @@
           <fa-icon icon="repeat" />
         </button>
       </div>
-
     </div>
 
     <div class="playback-bar">
-      <div id="timerunning">
-        00:00
-      </div>
+      <div id="timerunning">00:00</div>
       <div class="rangeaudio">
-        <input id="range" type="range" value="0" step="1" min="0" max="200" >
+        <input id="range" type="range" value="0" step="1" min="0" max="200" />
         <audio id="audio" :src="currentTrack.linktrack"></audio>
       </div>
-      <div id="timetrack">
-        00:00
-      </div>
+      <div id="timetrack">00:00</div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapState, mapMutations } from "vuex";
 export default {
-
   mounted() {
     this.getCurrentTrack();
-    this.running()
+    this.running();
   },
 
   computed: {
-    ...mapState(['currentTrack', 'currentId'])
+    ...mapState(["currentTrack", "currentId", "change" ,"volume"]),
   },
 
   data() {
     return {
       run: false,
-      timesong:0,
-      timerunn:0,
-    }
+      timesong: 0,
+      timerunn: 0,
+    };
   },
-
+  updated() {
+    this.updateTrack();
+  },
+  
 
   methods: {
-    ...mapActions(['getCurrentTrack', 'nextId', 'prevId']),
-    
+    ...mapActions(["getCurrentTrack", "nextId", "prevId"]),
+    ...mapMutations(["changeTrack"]),
     nexttrack() {
       this.nextId();
       this.run = true;
@@ -75,8 +71,6 @@ export default {
         this.toggle();
       }, 1000);
 
-      console.log(this.currentId);
-      console.log(this.currentTrack);
       this.getCurrentTrack();
     },
 
@@ -99,72 +93,93 @@ export default {
       const play = document.getElementById("toggle-button");
       const timetrack = document.getElementById("timetrack");
       if (this.run == true) {
-          play.innerHTML = `play`;
-          audiotrack.play();
-          
-          this.timesong = audiotrack.duration;
-          var x = this.formatTime(this.timesong);
-          timetrack.innerHTML = x;
+        play.innerHTML = `play`;
+        audiotrack.play();
+
+        this.timesong = audiotrack.duration;
+        var x = this.formatTime(this.timesong);
+        timetrack.innerHTML = x;
       } else {
-          play.innerHTML = `pause`;
-          audiotrack.pause();
+        play.innerHTML = `pause`;
+        audiotrack.pause();
       }
+
+      this.changeTrack(false);
     },
 
     formatTime(sec_num) {
-
       let hours = Math.floor(sec_num / 3600);
       let minutes = Math.floor((sec_num - hours * 3600) / 60);
       let seconds = Math.floor(sec_num - hours * 3600 - minutes * 60);
 
-      hours = hours < 10 ? (hours > 0 ? '0' + hours : 0) : hours;
+      hours = hours < 10 ? (hours > 0 ? "0" + hours : 0) : hours;
 
       if (minutes < 10) {
-          minutes = '0' + minutes;
+        minutes = "0" + minutes;
       }
       if (seconds < 10) {
-          seconds = '0' + seconds;
+        seconds = "0" + seconds;
       }
-      return (hours !== 0 ? hours + ':' : '') + minutes + ':' + seconds;
-      },
-
+      return (hours !== 0 ? hours + ":" : "") + minutes + ":" + seconds;
+    },
 
     running() {
       const audio = document.getElementById("audio");
       const range = document.getElementById("range");
       const timerunning = document.getElementById("timerunning");
-
       // this.changeVol();
-      audio.ontimeupdate = function() {
+      audio.ontimeupdate = function () {
         if (audio.duration) {
           const timenow = Math.floor(
             (audio.currentTime / audio.duration) * 200
           );
           range.value = timenow;
           // console.log(audio.volume);
-          
         }
-// Phan nay vue bi dien khong dung duoc formatTime. Nen moi phai viet lai ham formatTime :>>>
+        // Phan nay vue bi dien khong dung duoc formatTime. Nen moi phai viet lai ham formatTime :>>>
         let hours = Math.floor(audio.currentTime / 3600);
         let minutes = Math.floor((audio.currentTime - hours * 3600) / 60);
-        let seconds = Math.floor(audio.currentTime - hours * 3600 - minutes * 60);
+        let seconds = Math.floor(
+          audio.currentTime - hours * 3600 - minutes * 60
+        );
 
-        hours = hours < 10 ? (hours > 0 ? '0' + hours : 0) : hours;
+        hours = hours < 10 ? (hours > 0 ? "0" + hours : 0) : hours;
 
         if (minutes < 10) {
-          minutes = '0' + minutes;
+          minutes = "0" + minutes;
         }
         if (seconds < 10) {
-          seconds = '0' + seconds;
+          seconds = "0" + seconds;
         }
-        var y = (hours !== 0 ? hours + ':' : '') + minutes + ':' + seconds;
+        var y = (hours !== 0 ? hours + ":" : "") + minutes + ":" + seconds;
         timerunning.innerHTML = y;
 
-//
-      }
+        if (audio.ended) {
+          this.$nextId();
+          this.run = true;
+          setTimeout(() => {
+            this.toggle();
+            this.toggle();
+          }, 1000);
+
+          this.getCurrentTrack();
+        }
+        //
+      };
     },
-  }
-}
+
+    updateTrack() {
+      if (this.change == true) {
+      this.run = true;
+      setTimeout(() => {
+        this.toggle();
+        this.toggle();
+      }, 1000); 
+    }
+
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -180,7 +195,8 @@ export default {
   flex-flow: row nowrap;
   gap: 16px;
 }
-.player-controls-left, .player-controls-right{
+.player-controls-left,
+.player-controls-right {
   display: flex;
   flex: 1;
   gap: 8px;
@@ -210,7 +226,6 @@ button:hover {
   justify-content: space-between;
 }
 
-
 .timerunning {
   margin-right: 10px;
   font-size: 14px;
@@ -222,11 +237,10 @@ button:hover {
 }
 .rangeaudio {
   width: 100%;
-  
 }
 
 .rangeaudio input {
- width: 100%;
+  width: 100%;
   margin-top: 3px;
 }
 </style>

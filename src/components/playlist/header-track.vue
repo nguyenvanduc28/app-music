@@ -25,6 +25,7 @@ export default {
     ...mapState(['currentTrack'])
   },
 }
+
 </script>
 
 <style scoped>

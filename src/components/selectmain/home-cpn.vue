@@ -1,40 +1,44 @@
 <template>
-  <div class="showTracks"
-  >
-    <div class="flexitem-track"
-    v-for="track in tracks"
-    :key="track.id"
-    >
+  <div class="showTracks">
+    <div class="flexitem-track" v-for="track in tracks" :key="track.id">
       <div>
-        <img :src="track.imagetrack">
-      </div >
+        <img :src="track.imagetrack" @click="setTr(track.id)" />
+      </div>
 
       <div class="profile">
-        <div class="nametrack">{{track.name}}</div>
-        <div class="authortrack">{{track.author}}</div>
+        <div class="nametrack" @click="setTr(track.id)">{{ track.name }}</div>
+        <div class="authortrack">{{ track.author }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
-import { mapState} from 'vuex'
+import { mapActions, mapState, mapMutations } from "vuex";
 export default {
   computed: {
-    ...mapState(['tracks'])
-  }
-}
+    ...mapState(["tracks"]),
+  },
+  methods: {
+    ...mapActions(["selectTrack", "getCurrentTrack"]),
+    ...mapMutations(['changeTrack']),
+    setTr(id) {
+      this.selectTrack(id);
+      this.getCurrentTrack();
+      this.changeTrack(true);
+    },
+  },
+};
 </script>
 
 <style scoped>
-  .showTracks {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 20px;
-    padding: 20px;
-  }
+.showTracks {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+}
 .flexitem-track {
   width: 190px;
   height: 270px;
@@ -56,6 +60,7 @@ export default {
   font-size: 120%;
   font-weight: 400;
   overflow-x: hidden;
+  overflow-y: hidden;
   color: rgb(248, 248, 245);
 }
 
@@ -66,6 +71,6 @@ export default {
 }
 .profile {
   padding-top: 20px;
-  color: #A2A2A2;
+  color: #a2a2a2;
 }
 </style>
