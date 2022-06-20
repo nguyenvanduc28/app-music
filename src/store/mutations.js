@@ -27,8 +27,8 @@ export default {
     },
 
     setVolume(state, volume) {
-        state.volume = volume;
-        // console.log(state.volume);
+        state.volum = volume;
+        // console.log(state.volum);
     },
 
     setSumTrack(state, sumTrack) {

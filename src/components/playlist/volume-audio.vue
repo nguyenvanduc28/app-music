@@ -26,7 +26,7 @@ export default {
       }
     },
     computed: {
-      ...mapState(["volume"])
+      ...mapState(["volum"])
     },
     methods: {
       ...mapMutations(['setVolume']),
@@ -35,7 +35,7 @@ export default {
         const vol = document.getElementById("rangevol");
         this.setVolume(vol.value);
         // console.log(vol.value);
-        // console.log(this.volume);
+        console.log(this.volum);
       }
     },
 }

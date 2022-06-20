@@ -45,7 +45,7 @@ export default {
   },
 
   computed: {
-    ...mapState(["currentTrack", "currentId", "change", "volume"]),
+    ...mapState(["currentTrack", "currentId", "change", "volum"]),
   },
 
   data() {
@@ -127,15 +127,16 @@ export default {
       const range = document.getElementById("range");
       const timerunning = document.getElementById("timerunning");
       // this.changeVol();
-      audio.ontimeupdate = function () {
+
+      audio.ontimeupdate =  () => {
+        audio.volume = this.volum;
         if (audio.duration) {
           const timenow = Math.floor(
             (audio.currentTime / audio.duration) * 200
           );
           range.value = timenow;
-          // console.log(audio.volume);
         }
-        // Phan nay vue bi dien khong dung duoc formatTime. Nen moi phai viet lai ham formatTime :>>>
+
         let hours = Math.floor(audio.currentTime / 3600);
         let minutes = Math.floor((audio.currentTime - hours * 3600) / 60);
         let seconds = Math.floor(
@@ -152,18 +153,9 @@ export default {
         }
         var y = (hours !== 0 ? hours + ":" : "") + minutes + ":" + seconds;
         timerunning.innerHTML = y;
-
         if (audio.ended) {
-          this.$nextId();
-          this.run = true;
-          setTimeout(() => {
-            this.toggle();
-            this.toggle();
-          }, 1000);
-
-          this.getCurrentTrack();
+          this.nexttrack();
         }
-        //
       };
     },
 
