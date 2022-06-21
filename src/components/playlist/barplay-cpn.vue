@@ -81,8 +81,6 @@ export default {
         this.toggle();
         this.toggle();
       }, 1000);
-      console.log(this.currentId);
-      console.log(this.currentTrack);
       this.getCurrentTrack();
     },
 
