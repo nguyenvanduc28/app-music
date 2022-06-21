@@ -9,7 +9,7 @@
         </button>
 
         <div class="vol">
-          <button class="volumerange">
+          <button class="volumerange" @click="mute()">
             <fa-icon icon="volume-high" />
           </button>
         <input id="rangevol" class="progress" type="range" value="2" step="0.1" min="0" max="1" v-on:change="volchange()">
@@ -23,6 +23,8 @@ import { mapMutations, mapState } from "vuex";
 export default {
     data() {
       return {
+        ismute: false,
+        tmp: 0
       }
     },
     computed: {
@@ -34,8 +36,20 @@ export default {
       volchange() {
         const vol = document.getElementById("rangevol");
         this.setVolume(vol.value);
-        // console.log(vol.value);
-        console.log(this.volum);
+      },
+
+      mute() {
+        const vol = document.getElementById("rangevol");
+        if (vol.value > 0) {
+          this.tmp = vol.value;
+          vol.value = 0;
+          this.setVolume(0);
+
+        } else
+        {
+          vol.value = this.tmp;
+          this.setVolume(this.tmp);
+        }
       }
     },
 }
