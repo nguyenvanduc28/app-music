@@ -97,7 +97,7 @@ export default {
           this.timesong = audiotrack.duration;
         var x = this.formatTime(this.timesong);
         timetrack.innerHTML = x;
-        }, 1000);
+        }, 500);
       } else {
         play.innerHTML = `pause`;
         audiotrack.pause();
