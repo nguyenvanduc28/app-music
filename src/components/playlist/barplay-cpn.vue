@@ -92,10 +92,12 @@ export default {
       if (this.run == true) {
         play.innerHTML = `play`;
         audiotrack.play();
-
-        this.timesong = audiotrack.duration;
+        setTimeout(() => {
+          
+          this.timesong = audiotrack.duration;
         var x = this.formatTime(this.timesong);
         timetrack.innerHTML = x;
+        }, 1000);
       } else {
         play.innerHTML = `pause`;
         audiotrack.pause();
@@ -135,21 +137,7 @@ export default {
           range.value = timenow;
         }
 
-        let hours = Math.floor(audio.currentTime / 3600);
-        let minutes = Math.floor((audio.currentTime - hours * 3600) / 60);
-        let seconds = Math.floor(
-          audio.currentTime - hours * 3600 - minutes * 60
-        );
-
-        hours = hours < 10 ? (hours > 0 ? "0" + hours : 0) : hours;
-
-        if (minutes < 10) {
-          minutes = "0" + minutes;
-        }
-        if (seconds < 10) {
-          seconds = "0" + seconds;
-        }
-        var y = (hours !== 0 ? hours + ":" : "") + minutes + ":" + seconds;
+        var y = this.formatTime(audio.currentTime);
         timerunning.innerHTML = y;
         if (audio.ended) {
           this.nexttrack();
