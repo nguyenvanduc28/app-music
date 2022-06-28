@@ -67,8 +67,10 @@ export default {
       this.run = true;
       setTimeout(() => {
         this.toggle();
+      }, 500);
+      setTimeout(() => {
         this.toggle();
-      }, 1000);
+      }, 500);
 
       this.getCurrentTrack();
     },
@@ -79,8 +81,10 @@ export default {
 
       setTimeout(() => {
         this.toggle();
+      }, 500);
+      setTimeout(() => {
         this.toggle();
-      }, 1000);
+      }, 500);
       this.getCurrentTrack();
     },
 
@@ -93,10 +97,9 @@ export default {
         play.innerHTML = `play`;
         audiotrack.play();
         setTimeout(() => {
-          
           this.timesong = audiotrack.duration;
-        var x = this.formatTime(this.timesong);
-        timetrack.innerHTML = x;
+          var x = this.formatTime(this.timesong);
+          timetrack.innerHTML = x;
         }, 500);
       } else {
         play.innerHTML = `pause`;
@@ -128,7 +131,7 @@ export default {
       const timerunning = document.getElementById("timerunning");
       // this.changeVol();
 
-      audio.ontimeupdate =  () => {
+      audio.ontimeupdate = () => {
         audio.volume = this.volum;
         if (audio.duration) {
           const timenow = Math.floor(
@@ -150,8 +153,10 @@ export default {
         this.run = true;
         setTimeout(() => {
           this.toggle();
+        }, 500);
+        setTimeout(() => {
           this.toggle();
-        }, 1000);
+        }, 500);
       }
     },
   },

@@ -8,37 +8,37 @@ import Install from './components/selectmain/install-cpn.vue'
 
 const routes = [
     {
-        path: '/app-music/home', 
+        path: '/home', 
         component: Home,
         name: 'Home',
     },
 
     {
-        path: '/app-music/search', 
+        path: '/search', 
         component: Search,
         name: 'Search',
     },
 
     {
-        path: '/app-music/yourlibrary', 
+        path: '/yourlibrary', 
         component: YourLibrary,
         name: 'YourLibrary',
     },
 
     {
-        path: '/app-music/createplaylist', 
+        path: '/createplaylist', 
         component: CreatePlaylist,
         name: 'CreatePlaylist',
     },
 
     {
-        path: '/app-music/likedsong', 
+        path: '/likedsong', 
         component: Likedsong,
         name: 'Likedsong',
     },
     
     {
-        path: '/app-music/install', 
+        path: '/install', 
         component: Install,
         name: 'Install',
     }
