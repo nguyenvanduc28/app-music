@@ -82,12 +82,12 @@ export default {
   }
 
   .flexitem-track img {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
 }
 .flexitem-track {
-  width: 90px;
-  height: 125px;
+  width: 80px;
+  height: 115px;
   background: #181818;
   padding: 5px 10px;
 }
