@@ -224,4 +224,10 @@ button:hover {
   width: 100%;
   margin-top: 3px;
 }
+
+@media screen and (max-width: 500px) {
+  .playback-bar {
+    display: none;
+  }
+}
 </style>

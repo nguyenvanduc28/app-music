@@ -1,40 +1,39 @@
 <template>
-    <div class="root">
-      <nav class="nav-bar">
-        <NavBar />
-      </nav>
-      <div class="top-bar">
-        <TopBar />
-      </div>
-      <div class="main-view">
-        <MainView />
-      </div>
-      <div class="playing-bar">
-        <PlayingBar />
-      </div>
+  <div class="root">
+    <nav class="nav-bar">
+      <NavBar />
+    </nav>
+    <div class="top-bar">
+      <TopBar />
     </div>
+    <div class="main-view">
+      <MainView />
+    </div>
+    <div class="playing-bar">
+      <PlayingBar />
+    </div>
+  </div>
 </template>
 
 <script>
-import NavBar from './nav-bar.vue'
-import TopBar from './top-bar.vue'
-import MainView from './main-view.vue'
-import PlayingBar from './playing-bar.vue'
+import NavBar from "./nav-bar.vue";
+import TopBar from "./top-bar.vue";
+import MainView from "./main-view.vue";
+import PlayingBar from "./playing-bar.vue";
 
 export default {
   components: {
-    NavBar, 
+    NavBar,
     TopBar,
     MainView,
-    PlayingBar
-  }
-}
+    PlayingBar,
+  },
+};
 </script>
 
 <style>
-
 .top-bar {
-  /* background-color: #121212; */ 
+  /* background-color: #121212; */
   background-color: #000000;
   position: fixed;
   top: 0;
@@ -72,6 +71,11 @@ export default {
 
   .main-view {
     left: 55px;
+    bottom: 60px;
+  }
+  .playing-bar {
+    min-width: 0px;
+    height: 60px;
   }
 }
 </style>

@@ -78,7 +78,7 @@ export default {
 @media screen and (max-width: 500px) {
   .showTracks {
   gap: 8px;
-  padding: 8px;
+  padding: 10px 10px;
   }
 
   .flexitem-track img {

@@ -225,5 +225,9 @@ hr {
   .menuList .itemMenu, .installApp, .createPlaylist, .likedSongs {
     padding: 0 4px;
   }
+
+  .installApp {
+    bottom: 60px;
+  }
 }
 </style>

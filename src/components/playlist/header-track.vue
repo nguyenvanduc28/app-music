@@ -73,4 +73,13 @@ button:hover {
   display: flex;
   justify-content: center;
 }
+
+@media screen and (max-width: 500px) {
+  img {
+  height: 35px;
+  width: 35px;
+  margin: 10px 0;
+}
+  
+}
 </style>

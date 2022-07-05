@@ -66,4 +66,27 @@ export default {
   width: 30%;
   min-width: 180px;
 }
+
+@media screen and (max-width: 500px) {
+.root-playing-bar {
+  padding: 0 8px;
+}
+  /* header */
+  .header {
+    width: 50%;
+    min-width: 0px;
+  }
+
+  /* playlist */
+  .playlist {
+    width: 50%;
+    max-width: 500px;
+  }
+
+  /* volume */
+  .volume {
+    display: none;
+    width: 0;
+  }
+}
 </style>
