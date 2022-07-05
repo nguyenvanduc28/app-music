@@ -197,7 +197,9 @@ hr {
 .installApp a:focus {
   color: antiquewhite;
 }
-
+.logo2 {
+  display: none;
+}
 @media all and (max-width: 500px) {
   .nav-bar-root {
     width: 55px;
@@ -209,14 +211,11 @@ hr {
   .logo1 {
     display: none;
   }
-
+  .logo2 {
+    display: unset;
+  }
   .logo2 img {
     height: 30px;
-  }
-
-  .logo2 {
-    /* border: 1px solid white; */
-    height: 65.3px;
   }
 
   .logo a {

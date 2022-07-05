@@ -73,4 +73,41 @@ export default {
   padding-top: 20px;
   color: #a2a2a2;
 }
+
+
+@media screen and (max-width: 500px) {
+  .showTracks {
+  gap: 8px;
+  padding: 8px;
+  }
+
+  .flexitem-track img {
+  width: 70px;
+  height: 70px;
+}
+.flexitem-track {
+  width: 90px;
+  height: 125px;
+  background: #181818;
+  padding: 5px 10px;
+}
+
+.nametrack {
+  height: 15px;
+  font-size: 80%;
+}
+
+.profile {
+  padding-top: 5px;
+  color: #a2a2a2;
+}
+
+.authortrack {
+  height: 30px;
+  width: 100%;
+  font-size: 60%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+}
 </style>
