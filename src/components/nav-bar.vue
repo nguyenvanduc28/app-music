@@ -1,70 +1,80 @@
 <template>
-<div>
-  <div class="nav-bar-root">
-    <div class="logo">
-      <a href="https://open.spotify.com/">
-        <img src="../assets/logos/Spotify_Logo_RGB_White.png">
-      </a>
+  <div>
+    <div class="nav-bar-root">
+      <div class="logo">
+        <a class="logo1" href="https://open.spotify.com/">
+          <img src="../assets/logos/Spotify_Logo_RGB_Green.png" />
+        </a>
+
+        <a class="logo2" href="https://open.spotify.com/">
+          <img src="../assets/logos/spotify_responsive.png" />
+        </a>
+      </div>
+
+      <div class="menuList">
+        <div class="itemMenu">
+          <router-link class-active="active" :to="{ name: 'Home' }" tag="a">
+            <fa-icon class="icons" icon="house" />
+            <span>Home</span>
+          </router-link>
+        </div>
+        <div class="itemMenu">
+          <router-link class-active="active" :to="{ name: 'Search' }" tag="a">
+            <fa-icon class="icons" icon="magnifying-glass" />
+            <span>Search</span>
+          </router-link>
+        </div>
+        <div class="itemMenu">
+          <router-link
+            class-active="active"
+            :to="{ name: 'YourLibrary' }"
+            tag="a"
+          >
+            <fa-icon class="icons" icon="book-open" />
+            <span>Your Library</span>
+          </router-link>
+        </div>
+      </div>
+
+      <div class="storeList">
+        <div class="createPlaylist">
+          <router-link
+            class-active="active"
+            :to="{ name: 'CreatePlaylist' }"
+            tag="a"
+          >
+            <fa-icon class="icons" icon="plus" />
+            <span>Create Playlist</span>
+          </router-link>
+        </div>
+
+        <div class="likedSongs">
+          <router-link
+            class-active="active"
+            :to="{ name: 'Likedsong' }"
+            tag="a"
+          >
+            <fa-icon class="icons" icon="heart" />
+            <span>Liked Songs</span>
+          </router-link>
+        </div>
+
+        <div class="hrLine">
+          <hr />
+        </div>
+      </div>
     </div>
-
-    <div class="menuList">
-      <div class="itemMenu" >
-        <router-link class-active="active" :to="{name:'Home'}" tag="a">
-          <fa-icon class="icons" icon="house" />
-          <span>Home</span>
-        </router-link>
-      </div>
-      <div class="itemMenu" >
-        <router-link class-active="active" :to="{name:'Search'}" tag="a">
-          <fa-icon class="icons" icon="magnifying-glass" />
-          <span>Search</span>
-        </router-link>
-      </div>
-      <div class="itemMenu">
-        <router-link class-active="active" :to="{name:'YourLibrary'}" tag="a">
-          <fa-icon class="icons" icon="book-open" />
-          <span>Your Library</span>
-        </router-link>
-      </div>
-      
-    </div>
-
-    <div class="storeList">
-
-      <div class="createPlaylist">
-        <router-link class-active="active" :to="{name:'CreatePlaylist'}" tag="a">
-          <fa-icon class="icons" icon="plus" />
-          <span>Create Playlist</span>
-        </router-link>
-      </div>
-
-      <div class="likedSongs">
-        <router-link class-active="active" :to="{name:'Likedsong'}" tag="a">
-          <fa-icon class="icons" icon="heart" />
-          <span>Liked Songs</span>
-        </router-link>
-      </div>
-
-      <div class="hrLine">
-        <hr>
-      </div>
-
-    </div>
-
-  </div>
     <div class="installApp">
-      <router-link class-active="active" :to="{name:'Install'}" tag="a">
-          <fa-icon class="installIcon" icon="circle-arrow-down" />
-          <span>Install App</span>
-        </router-link>
+      <router-link class-active="active" :to="{ name: 'Install' }" tag="a">
+        <fa-icon class="installIcon" icon="circle-arrow-down" />
+        <span>Install App</span>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
@@ -85,9 +95,8 @@ export default {
   background-color: #000000;
 }
 
-
 /* Logo */
-.logo img{
+.logo img {
   height: 40px;
 }
 
@@ -100,7 +109,6 @@ export default {
   padding: 0 24px;
   margin-bottom: 18px;
 }
-
 
 /* Menu list */
 .menuList {
@@ -127,7 +135,7 @@ span {
   height: 16px;
   font-size: 13px;
   font-weight: bold;
-  font-family: helvetica,arial, sans-serif;
+  font-family: helvetica, arial, sans-serif;
 }
 /* store list */
 .storeList {
@@ -145,7 +153,7 @@ span {
 }
 
 hr {
-  margin-top: 8px ;
+  margin-top: 8px;
   margin-left: 24px;
   margin-right: 24px;
   background-color: #a09c9c;
@@ -169,21 +177,54 @@ hr {
 .installIcon {
   margin-right: 15px;
   vertical-align: -4px;
-
 }
 
-
-.menuList a, .storeList a, .installApp a{
+.menuList a,
+.storeList a,
+.installApp a {
   color: #a09c9c;
   text-decoration: none;
   padding-left: 14px;
-  
 }
-.menuList a:hover, .storeList a:hover, .installApp a:hover{
+.menuList a:hover,
+.storeList a:hover,
+.installApp a:hover {
   color: antiquewhite;
 }
 
-.menuList a:focus, .storeList a:focus, .installApp a:focus {
+.menuList a:focus,
+.storeList a:focus,
+.installApp a:focus {
   color: antiquewhite;
+}
+
+@media all and (max-width: 500px) {
+  .nav-bar-root {
+    width: 55px;
+  }
+
+  span {
+    display: none;
+  }
+  .logo1 {
+    display: none;
+  }
+
+  .logo2 img {
+    height: 30px;
+  }
+
+  .logo2 {
+    /* border: 1px solid white; */
+    height: 65.3px;
+  }
+
+  .logo a {
+    padding: 0 13px;
+  }
+
+  .menuList .itemMenu, .installApp, .createPlaylist, .likedSongs {
+    padding: 0 4px;
+  }
 }
 </style>

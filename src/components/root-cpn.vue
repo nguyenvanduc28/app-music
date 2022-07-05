@@ -64,4 +64,14 @@ export default {
   min-width: 770px;
   overflow-y: scroll;
 }
+
+@media screen and (max-width: 500px) {
+  .top-bar {
+    left: 55px;
+  }
+
+  .main-view {
+    left: 55px;
+  }
+}
 </style>
