@@ -66,11 +66,13 @@ export default {
 
 @media screen and (max-width: 500px) {
   .top-bar {
-    left: 55px;
+    left: 40px;
+    height: 40px;
   }
 
   .main-view {
-    left: 55px;
+    top: 40px;
+    left: 40px;
     bottom: 60px;
   }
   .playing-bar {

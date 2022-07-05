@@ -7,7 +7,7 @@
         </a>
 
         <a class="logo2" href="https://open.spotify.com/">
-          <img src="../assets/logos/spotify_responsive.png" />
+          <img src="../assets/logos/spotify_responsive_green.png" />
         </a>
       </div>
 
@@ -169,7 +169,6 @@ hr {
   bottom: 90px;
   left: 0;
   width: 300px;
-  height: 40px;
   background-color: #000000;
   color: #a7a7a7;
 }
@@ -202,7 +201,8 @@ hr {
 }
 @media all and (max-width: 500px) {
   .nav-bar-root {
-    width: 55px;
+    width: 40px;
+    padding-top: 8px;
   }
 
   span {
@@ -215,19 +215,32 @@ hr {
     display: unset;
   }
   .logo2 img {
-    height: 30px;
+    height: 25px;
   }
 
   .logo a {
-    padding: 0 13px;
+    padding: 0 8px;
+    margin-bottom: 10px;
   }
 
-  .menuList .itemMenu, .installApp, .createPlaylist, .likedSongs {
+  .menuList .itemMenu,
+  .installApp,
+  .createPlaylist,
+  .likedSongs {
     padding: 0 4px;
   }
 
   .installApp {
     bottom: 60px;
+  }
+  .icons {
+    height: 18px;
+    width: 18px;
+  }
+  .menuList a,
+  .storeList a,
+  .installApp a {
+    padding-left: 8px;
   }
 }
 </style>
