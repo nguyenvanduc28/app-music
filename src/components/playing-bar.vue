@@ -73,13 +73,13 @@ export default {
 }
   /* header */
   .header {
-    width: 50%;
+    width: 48%;
     min-width: 0px;
   }
 
   /* playlist */
   .playlist {
-    width: 50%;
+    width: 48%;
     max-width: 500px;
   }
 
