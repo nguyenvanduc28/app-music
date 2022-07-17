@@ -11,7 +11,9 @@
       </div>
       <div>
         <button id="toggle-button" @click="toggle()">
-          <fa-icon icon="play" />
+          <fa-icon icon="play" id="play"/>
+          <fa-icon icon="pause" id="pause"/>
+
         </button>
       </div>
 
@@ -91,10 +93,12 @@ export default {
     toggle() {
       this.run = !this.run;
       const audiotrack = document.getElementById("audio");
-      const play = document.getElementById("toggle-button");
+      const play = document.getElementById("play");
+      const pause = document.getElementById("pause");
       const timetrack = document.getElementById("timetrack");
       if (this.run == true) {
-        play.innerHTML = `play`;
+        pause.style.display = "unset";
+        play.style.display = "none";
         audiotrack.play();
         setTimeout(() => {
           this.timesong = audiotrack.duration;
@@ -102,7 +106,8 @@ export default {
           timetrack.innerHTML = x;
         }, 500);
       } else {
-        play.innerHTML = `pause`;
+        play.style.display = "unset";
+        pause.style.display = "none";
         audiotrack.pause();
       }
 
@@ -199,7 +204,9 @@ button {
 button:hover {
   color: white;
 }
-
+#pause{
+  display: none;
+}
 .playback-bar {
   width: 100%;
   display: flex;
@@ -224,7 +231,9 @@ button:hover {
   width: 100%;
   margin-top: 3px;
 }
-
+.ti-control-play {
+  color: white;
+}
 @media screen and (max-width: 500px) {
   .playback-bar {
     display: none;
