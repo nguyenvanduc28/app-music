@@ -1,11 +1,11 @@
 <template>
   <div class="top-bar-menu">
     <div class="back-next">
-      <button type="button" class="btn btn-outline-secondary">
+      <button type="button" class="btn btn-outline-secondary" @click="goBack()">
         <fa-icon class="icons" icon="chevron-left" />
       </button>
 
-      <button type="button" class="btn btn-outline-secondary">
+      <button type="button" class="btn btn-outline-secondary" @click="goForward()">
         <fa-icon class="icons" icon="chevron-right" />
       </button>
     </div>
@@ -24,7 +24,15 @@
 
 <script>
 export default {
+  methods: {
+    goBack() {
+      window.history.back();
+    },
 
+    goForward() {
+      window.history.forward();
+    }
+  },
 }
 </script>
 
