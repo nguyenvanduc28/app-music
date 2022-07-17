@@ -10,7 +10,8 @@
 
         <div class="vol">
           <button class="volumerange" @click="mute()">
-            <fa-icon icon="volume-high" />
+            <fa-icon icon="volume-high" id="volume-high"/>
+            <fa-icon icon="volume-xmark" id="volume-xmark"/>
           </button>
         <input id="rangevol" class="progress" type="range" value="2" step="0.1" min="0" max="1" v-on:change="volchange()">
         </div>
@@ -45,10 +46,16 @@ export default {
           vol.value = 0;
           this.setVolume(0);
 
+          document.getElementById("volume-high").style.display = "none";
+          document.getElementById("volume-xmark").style.display = "unset";
+
         } else
         {
           vol.value = this.tmp;
           this.setVolume(this.tmp);
+
+          document.getElementById("volume-high").style.display = "unset";
+          document.getElementById("volume-xmark").style.display = "none";
         }
       }
     },
@@ -96,5 +103,9 @@ button {
 
 button:hover {
   color: white;
+}
+
+#volume-xmark {
+  display: none;
 }
 </style>
